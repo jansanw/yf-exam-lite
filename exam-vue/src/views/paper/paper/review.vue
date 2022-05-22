@@ -42,7 +42,6 @@
 
       </el-table-column>
 
-
       <el-table-column
         label="总分"
         align="center"
@@ -65,7 +64,7 @@
         align="center"
       >
         <template slot-scope="scope">
-          <el-button v-if="scope.row.state === 2"  round size="small" @click="handleView(scope.row.id)">查看</el-button>
+          <el-button v-if="scope.row.state === 2" round size="small" @click="handleView(scope.row.id)">查看</el-button>
         </template>
 
       </el-table-column>
@@ -104,9 +103,7 @@ export default {
   },
   methods: {
 
-
-    handleView(id){
-
+    handleView(id) {
       this.$router.push({ name: 'ShowExam', params: { id: id }})
     }
   }

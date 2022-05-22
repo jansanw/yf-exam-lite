@@ -138,7 +138,6 @@ export default {
   data() {
     return {
 
-
       dialogVisible: false,
 
       listQuery: {
@@ -179,9 +178,8 @@ export default {
       this.formData.avatar = response.data.url
     },
 
-
     handleAdd() {
-      this.formData = {};
+      this.formData = {}
       this.dialogVisible = true
     },
 

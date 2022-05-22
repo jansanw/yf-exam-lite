@@ -24,7 +24,6 @@
 
       </el-table-column>
 
-
       <el-table-column
         label="考试类型"
       >

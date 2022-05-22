@@ -10,9 +10,6 @@
     >
       <template slot="filter-content">
 
-
-
-
         <el-row>
           <el-col :span="24">
 
@@ -235,8 +232,8 @@ export default {
       exportExcel(this.listQuery.params)
     },
 
-    downloadTemplate(){
-      importTemplate();
+    downloadTemplate() {
+      importTemplate()
     },
 
     showImport() {

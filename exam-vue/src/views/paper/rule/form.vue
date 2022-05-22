@@ -13,7 +13,6 @@
           <el-input-number v-model="postForm.objScore" :controls="false" :min="0" :max="200" @change="handleScoreChange" />
         </el-form-item>
 
-
         <el-form-item label="总分数" prop="totalScore">
           <el-input-number v-model="postForm.totalScore" :controls="false" readonly style="width: 200px" />
         </el-form-item>
@@ -86,10 +85,9 @@
           align="center"
         >
           <template slot-scope="scope">
-            <el-input-number v-model="scope.row.multiScore" :controls="false" style="width: 100%;"  />
+            <el-input-number v-model="scope.row.multiScore" :controls="false" style="width: 100%;" />
           </template>
         </el-table-column>
-
 
         <el-table-column
           label="删除"

@@ -6,7 +6,6 @@
       <el-link type="primary" icon="el-icon-headset" href="https://face-files.oss-cn-shenzhen.aliyuncs.com/guide.pdf" target="_blank">在线文档</el-link>
     </div>
 
-
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
 
       <div class="title-container">
@@ -52,28 +51,21 @@
         </el-form-item>
       </el-tooltip>
 
-
-
-
       <div style="position:relative;">
 
         <el-row :gutter="10">
-
 
           <el-col :span="16">
             <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
           </el-col>
 
-
           <el-col :span="8">
-            <el-button type="warning" style="width:100%;margin-bottom:30px;"  @click.native.prevent="studentRegister">学员注册</el-button>
+            <el-button type="warning" style="width:100%;margin-bottom:30px;" @click.native.prevent="studentRegister">学员注册</el-button>
           </el-col>
-
 
         </el-row>
 
       </div>
-
 
       <div style="position:relative;">
 
@@ -93,11 +85,9 @@
             <el-button icon="el-icon-s-tools" style="width:100%;margin-bottom:30px;" @click.native.prevent="adminLogin">超管登录</el-button>
           </el-col>
 
-
         </el-row> -->
 
       </div>
-
 
     </el-form>
 
@@ -189,7 +179,7 @@ export default {
       this.handleLogin()
     },
 
-    onlineGuide(){
+    onlineGuide() {
       this.$router.push('https://face-files.oss-cn-shenzhen.aliyuncs.com/guide.pdf')
     },
 
@@ -294,8 +284,6 @@ $cursor: #fff;
 $bg:#2d3a4b;
 $dark_gray:#889aa4;
 $light_gray:#eee;
-
-
 
 .login-container {
   min-height: 100%;

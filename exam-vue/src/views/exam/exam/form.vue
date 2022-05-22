@@ -24,12 +24,9 @@
           />
         </el-form-item>
 
-
-        <el-form-item v-if="!postForm.open" label="考试口令" prop="password" >
-          <el-input v-model="postForm.password" placeholder="只有输入正确的口令才可以考试"/>
+        <el-form-item v-if="!postForm.open" label="考试口令" prop="password">
+          <el-input v-model="postForm.password" placeholder="只有输入正确的口令才可以考试" />
         </el-form-item>
-
-
 
         <el-form-item label="考试规则" prop="ruleId">
           <rule-select v-model="postForm.ruleId" />
@@ -97,7 +94,6 @@ export default {
       })
     },
     submitForm() {
-
       this.$refs.postForm.validate((valid) => {
         if (!valid) {
           return

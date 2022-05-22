@@ -5,6 +5,6 @@ import { post } from '@/utils/request'
  * @param data
  */
 export function nextQu(id) {
-  return post('/user/wrong-book/next',  { id: id })
+  return post('/user/wrong-book/next', { id: id })
 }
 

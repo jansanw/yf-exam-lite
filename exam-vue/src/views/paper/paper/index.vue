@@ -40,15 +40,14 @@
         prop="createTime"
       />
 
-
-
       <el-table-column
         label="考试时长(分钟)"
         align="center"
-        prop="totalTime">
+        prop="totalTime"
+      >
 
         <template slot-scope="scope">
-          {{scope.row.userTime}} / {{scope.row.totalTime}}
+          {{ scope.row.userTime }} / {{ scope.row.totalTime }}
         </template>
 
       </el-table-column>
@@ -73,14 +72,14 @@
 
       <el-table-column
         label="考试状态"
-        align="center">
+        align="center"
+      >
 
         <template slot-scope="scope">
-          {{scope.row.state | paperStateFilter}}
+          {{ scope.row.state | paperStateFilter }}
         </template>
 
       </el-table-column>
-
 
     </template>
 

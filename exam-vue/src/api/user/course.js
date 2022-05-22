@@ -5,7 +5,7 @@ import { post } from '@/utils/request'
  * @param data
  */
 export function fetchDetail(id) {
-  return post('/exam/exam/detail',{ id: id })
+  return post('/exam/exam/detail', { id: id })
 }
 
 /**

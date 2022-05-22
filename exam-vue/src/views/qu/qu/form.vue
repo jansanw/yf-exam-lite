@@ -26,9 +26,8 @@
 
         <el-form-item label="题目内容" prop="content">
           <!-- <el-input v-model="postForm.content" type="textarea" /> -->
-          <Markdown v-model="postForm.content" :value="postForm.content"></Markdown>
+          <Markdown v-model="postForm.content" :value="postForm.content" />
         </el-form-item>
-
 
         <el-form-item label="整题解析" prop="oriPrice">
           <el-input v-model="postForm.analysis" type="textarea" :precision="1" :max="999999" />
@@ -107,7 +106,7 @@ import Markdown from 'vue-meditor'
 
 export default {
   name: 'QuDetail',
-  components: { RepoSelect, Markdown  },
+  components: { RepoSelect, Markdown },
   data() {
     return {
 
@@ -152,7 +151,6 @@ export default {
     }
   },
   methods: {
-
 
     // 添加子项
     handleAdd() {
@@ -216,9 +214,8 @@ export default {
         if (!valid) {
           return
         }
-console.log(this.postForm)
+        console.log(this.postForm)
         saveData(this.postForm).then(response => {
-
           this.postForm = response.data
           this.$notify({
             title: '成功',

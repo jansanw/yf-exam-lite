@@ -28,28 +28,28 @@
           <div v-if="paperData.radioList!==undefined && paperData.radioList.length > 0">
             <p class="card-title">单选题</p>
             <el-row :gutter="24" class="card-line">
-              <el-tag v-for="item in paperData.radioList" :type="cardItemClass(item.answered, item.quId)" @click="handSave(item)"> {{ item.sort+1 }}</el-tag>
+              <el-tag v-for="item in paperData.radioList" :key="item" :type="cardItemClass(item.answered, item.quId)" @click="handSave(item)"> {{ item.sort+1 }}</el-tag>
             </el-row>
           </div>
 
           <div v-if="paperData.multiList!==undefined && paperData.multiList.length > 0">
             <p class="card-title">多选题</p>
             <el-row :gutter="24" class="card-line">
-              <el-tag v-for="item in paperData.multiList" :type="cardItemClass(item.answered, item.quId)" @click="handSave(item)">{{ item.sort+1 }}</el-tag>
+              <el-tag v-for="item in paperData.multiList" :key="item" :type="cardItemClass(item.answered, item.quId)" @click="handSave(item)">{{ item.sort+1 }}</el-tag>
             </el-row>
           </div>
 
           <div v-if="paperData.judgeList!==undefined && paperData.judgeList.length > 0">
             <p class="card-title">判断题</p>
             <el-row :gutter="24" class="card-line">
-              <el-tag v-for="item in paperData.judgeList" :type="cardItemClass(item.answered, item.quId)" @click="handSave(item)">{{ item.sort+1 }}</el-tag>
+              <el-tag v-for="item in paperData.judgeList" :key="item" :type="cardItemClass(item.answered, item.quId)" @click="handSave(item)">{{ item.sort+1 }}</el-tag>
             </el-row>
           </div>
 
           <div v-if="paperData.saqList!==undefined && paperData.saqList.length > 0">
             <p class="card-title">简答题</p>
             <el-row :gutter="24" class="card-line">
-              <el-tag v-for="item in paperData.saqList" :type="cardItemClass(item.answered, item.quId)" @click="handSave(item)">{{ item.sort+1 }}</el-tag>
+              <el-tag v-for="item in paperData.saqList" :key="item" :type="cardItemClass(item.answered, item.quId)" @click="handSave(item)">{{ item.sort+1 }}</el-tag>
             </el-row>
           </div>
 
@@ -62,20 +62,20 @@
         <el-card class="qu-content">
           <p v-if="quData.content">题目{{ quData.sort + 1 }} </p>
           <div style="margin-bottom:20px">
-            <Markdown :value="quData.content" :isPreview=true></Markdown>
+            <Markdown :value="quData.content" :is-preview="true" />
             <p v-if="quData.image"><img :src="quData.image"></p>
           </div>
-           <p>选项：</p>
+          <p>选项：</p>
           <div v-if="quData.quType === 1 || quData.quType===3">
             <el-radio-group v-model="radioValue">
-              <el-radio v-for="item in quData.answerList" :label="item.id">{{ item.abc }}.{{ item.content }} <div v-if="item.image" style="clear: both"><img :src="item.image"></div></el-radio>
+              <el-radio v-for="item in quData.answerList" :key="item" :label="item.id">{{ item.abc }}.{{ item.content }} <div v-if="item.image" style="clear: both"><img :src="item.image"></div></el-radio>
             </el-radio-group>
           </div>
 
           <div v-if="quData.quType === 2">
 
             <el-checkbox-group v-model="multiValue">
-              <el-checkbox v-for="item in quData.answerList" :label="item.id">{{ item.abc }}.{{ item.content }} <div v-if="item.image" style="clear: both"><img :src="item.image"></div></el-checkbox>
+              <el-checkbox v-for="item in quData.answerList" :key="item" :label="item.id">{{ item.abc }}.{{ item.content }} <div v-if="item.image" style="clear: both"><img :src="item.image"></div></el-checkbox>
             </el-checkbox-group>
 
           </div>
@@ -123,7 +123,7 @@ import Markdown from 'vue-meditor'
 
 export default {
   name: 'ExamProcess',
-  components: { Markdown  },
+  components: { Markdown },
   data() {
     return {
       // 全屏/不全屏
@@ -469,7 +469,7 @@ export default {
     margin: 2px;
   }
 
-  /deep/
+  ::v-deep
   .el-radio, .el-checkbox{
     padding: 9px 20px 9px 10px;
     border-radius: 4px;
@@ -487,22 +487,22 @@ export default {
     border: #dcdfe6 1px dotted;
   }
 
-  /deep/
+  ::v-deep
   .el-checkbox__inner {
     display: none;
   }
 
-  /deep/
+  ::v-deep
   .el-radio__inner{
     display: none;
   }
 
-  /deep/
+  ::v-deep
   .el-checkbox__label{
     line-height: 30px;
   }
 
-  /deep/
+  ::v-deep
   .el-radio__label{
     line-height: 30px;
   }

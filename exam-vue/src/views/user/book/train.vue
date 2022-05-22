@@ -8,14 +8,14 @@
         <p>【{{ quData.quType | quTypeFilter }}】{{ quData.content }}</p>
         <div v-if="quData.quType === 1 || quData.quType===3 ">
           <el-radio-group v-model="answerValues[0]" readonly>
-            <el-radio v-for="an in quData.answerList" :label="an.id" readonly>{{ an.abc }}.{{ an.content }}</el-radio>
+            <el-radio v-for="an in quData.answerList" :key="an" :label="an.id" readonly>{{ an.abc }}.{{ an.content }}</el-radio>
           </el-radio-group>
         </div>
 
         <!-- 多选题 -->
         <div v-if="quData.quType === 2">
           <el-checkbox-group v-model="answerValues" readonly>
-            <el-checkbox v-for="an in quData.answerList" :label="an.id">{{ an.abc }}.{{ an.content }}</el-checkbox>
+            <el-checkbox v-for="an in quData.answerList" :key="an" :label="an.id">{{ an.abc }}.{{ an.content }}</el-checkbox>
           </el-checkbox-group>
         </div>
 
@@ -35,10 +35,12 @@
 
     <el-card v-if="analysisShow" class="qu-analysis" style="margin-top: 20px;">
       选项解析：
-      <div v-for="an in quData.answerList" v-if="an.analysis" class="qu-analysis-line">
-        <p style="color: #555;">{{ an.content }}：</p>
-        <p style="color: #1890ff;">{{ an.analysis }}</p>
-      </div>
+      <template v-for="an in quData.answerList">
+        <div v-if="an.analysis" :key="an" class="qu-analysis-line">
+          <p style="color: #555;">{{ an.content }}：</p>
+          <p style="color: #1890ff;">{{ an.analysis }}</p>
+        </div>
+      </template>
       <p v-if="analysisCount === 0">暂无选项解析</p>
 
     </el-card>
@@ -126,7 +128,6 @@ export default {
       } else {
         // 直接判断正确性
         if (this.rightValues.join(',') === this.answerValues.join(',')) {
-
           this.$message({
             message: '回答正确，你好棒哦！',
             type: 'success'

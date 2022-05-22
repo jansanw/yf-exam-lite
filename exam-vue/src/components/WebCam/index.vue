@@ -1,16 +1,16 @@
 <template>
 
-          <vue-web-cam
-            ref="webcam"
-            :device-id="deviceId"
-            width="250px"
-            height="180px"
-            @started="onStarted"
-            @stopped="onStopped"
-            @error="onError"
-            @cameras="onCameras"
-            @camera-change="onCameraChange"
-          />
+  <vue-web-cam
+    ref="webcam"
+    :device-id="deviceId"
+    width="250px"
+    height="180px"
+    @started="onStarted"
+    @stopped="onStopped"
+    @error="onError"
+    @cameras="onCameras"
+    @camera-change="onCameraChange"
+  />
 </template>
 
 <script>

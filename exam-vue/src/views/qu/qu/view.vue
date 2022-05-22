@@ -8,14 +8,14 @@
         <p>【{{ quData.quType===1?'单选题':'多选题' }}】{{ quData.content }}</p>
         <div v-if="quData.quType === 1">
           <el-radio-group v-model="radioValues" readonly>
-            <el-radio v-for="an in quData.answerList" :label="an.id" readonly>{{ an.content }}</el-radio>
+            <el-radio v-for="an in quData.answerList" :key="an" :label="an.id" readonly>{{ an.content }}</el-radio>
           </el-radio-group>
         </div>
 
         <!-- 多选题 -->
         <div v-if="quData.quType === 2">
           <el-checkbox-group v-model="multiValues" readonly>
-            <el-checkbox v-for="an in quData.answerList" :label="an.id">{{ an.content }}</el-checkbox>
+            <el-checkbox v-for="an in quData.answerList" :key="an" :label="an.id">{{ an.content }}</el-checkbox>
           </el-checkbox-group>
         </div>
 
@@ -31,11 +31,13 @@
 
     <el-card class="qu-analysis" style="margin-top: 20px; margin-bottom: 30px">
       选项解析：
-      <div v-for="an in quData.answerList" v-if="an.analysis" class="qu-analysis-line">
-        <p style="color: #555;">{{ an.content }}：</p>
-        <p style="color: #1890ff;">{{ an.analysis }}</p>
-      </div>
-      <p v-if="analysisCount === 0">暂无选项解析</p>
+      <template v-for="an in quData.answerList">
+        <div v-if="an.analysis" :key="an" class="qu-analysis-line">
+          <p style="color: #555;">{{ an.content }}：</p>
+          <p style="color: #1890ff;">{{ an.analysis }}</p>
+        </div>
+        <p v-if="analysisCount === 0">暂无选项解析</p>
+      </template>
 
     </el-card>
 

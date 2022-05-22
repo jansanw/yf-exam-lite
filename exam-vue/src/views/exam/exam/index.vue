@@ -24,7 +24,6 @@
 
       </el-table-column>
 
-
       <el-table-column
         label="考试类型"
         align="center"
@@ -36,7 +35,6 @@
 
       </el-table-column>
 
-
       <el-table-column
         label="考试人数"
         align="center"
@@ -45,7 +43,7 @@
         <template slot-scope="scope">
 
           <router-link :to="{name: 'ReviewPaper', params:{examId: scope.row.id}}">
-            {{scope.row.examUser}}
+            {{ scope.row.examUser }}
           </router-link>
 
         </template>

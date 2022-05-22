@@ -221,7 +221,6 @@ export function joinStateFilter(value) {
   return map[value]
 }
 
-
 /**
  * 竞拍参与状态
  * @param value
@@ -236,7 +235,6 @@ export function quTypeFilter(value) {
   }
   return map[value]
 }
-
 
 /**
  * 竞拍参与状态
@@ -263,8 +261,6 @@ export function examResultFilter(value) {
   }
   return map[value]
 }
-
-
 
 /**
  * 竞拍参与状态
